@@ -3,6 +3,7 @@ import { Container } from '@material-ui/core';
 import { Typography } from '@mui/material';
 import Button from './components/Button';
 import Table from './components/Table';
+import Select from './components/Select';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         StackOverflow Tags
       </Typography>
       <Table />
+      <Select />
       <Button>Hello World</Button>
       <Button disabled>Hello World</Button>
     </Container>
