@@ -1,14 +1,16 @@
 import React from 'react';
-import Button from './components/Button';
 import { Container } from '@material-ui/core';
 import { Typography } from '@mui/material';
+import Button from './components/Button';
+import Table from './components/Table';
 
 function App() {
   return (
     <Container maxWidth="sm">
-      <Typography variant="h1" sx={{ color: '#fff', fontSize: '2rem', padding: '1rem 0.5rem' }}>
+      <Typography variant="h1" sx={{ color: '#fff', fontSize: '2rem', margin: '1rem 0.5rem' }}>
         StackOverflow Tags
       </Typography>
+      <Table />
       <Button>Hello World</Button>
       <Button disabled>Hello World</Button>
     </Container>
