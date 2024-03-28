@@ -1,6 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
 import Table from './Table';
+
+const tableHead = [{ name: 'Tags' }, { name: 'Amount' }];
+
+const tableBody = [
+  { name: 'React', count: 45345 },
+  { name: 'JavaScript', count: 45345 },
+  { name: 'TypeScript', count: 45345 }
+];
 
 const meta = {
   title: 'Table',
@@ -13,7 +20,7 @@ const meta = {
 
   argTypes: {},
 
-  args: { onClick: fn() }
+  args: { head: tableHead, body: tableBody }
 } satisfies Meta<typeof Table>;
 
 export default meta;
