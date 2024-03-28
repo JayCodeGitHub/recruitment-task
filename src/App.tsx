@@ -1,13 +1,12 @@
 import React from 'react';
-import { Button } from '@mui/material';
+import Button from './components/Button';
 
 function App() {
   return (
     <main>
       <h1>React App</h1>
-      <Button variant="contained" color="primary">
-        Hello World
-      </Button>
+      <Button>Hello World</Button>
+      <Button disabled>Hello World</Button>
     </main>
   );
 }
