@@ -1,21 +1,20 @@
 import React from 'react';
 import { Snackbar, Alert as MuiAlert, Slide } from '@mui/material';
-
-const message = 'This is an error Alert.';
+import useStore from '../../state';
 
 function Alert() {
-  const [open, setOpen] = React.useState(true);
+  const { alert, setAlert } = useStore();
 
   const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
     if (reason === 'clickaway') {
       return;
     }
 
-    setOpen(false);
+    setAlert(false);
   };
   return (
     <Snackbar
-      open={open}
+      open={alert ? true : false}
       autoHideDuration={6000}
       onClose={handleClose}
       TransitionComponent={Slide}
@@ -23,7 +22,7 @@ function Alert() {
         vertical: 'top',
         horizontal: 'center'
       }}>
-      <MuiAlert severity="error">{message}</MuiAlert>
+      <MuiAlert severity="error">{alert}</MuiAlert>
     </Snackbar>
   );
 }

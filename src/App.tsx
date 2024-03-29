@@ -11,7 +11,7 @@ import axios from 'axios';
 const tableHead = [{ name: 'Tags' }, { name: 'Amount' }];
 
 function App() {
-  const { items, setItems } = useStore();
+  const { items, setItems, setAlert } = useStore();
   const [isLoading, setIsLoading] = React.useState(true);
 
   const fetchData = async () => {
@@ -25,7 +25,7 @@ function App() {
         })
       );
     } catch (error) {
-      console.error(error);
+      setAlert('Failed to get data');
     }
     setIsLoading(false);
   };
