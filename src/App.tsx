@@ -16,11 +16,22 @@ function App() {
 
   const fetchData = async () => {
     try {
-      const res = await axios.get(
-        'https://api.stackexchange.com/2.3/tags?order=desc&sort=popular&site=stackoverflow'
-      );
+      // artificial delay
+      const [res] = await Promise.allSettled([
+        axios.get(
+          'https://api.stackexchange.com/2.3/tags?order=desc&sort=popular&site=stackoverflow'
+        ),
+        new Promise((resolve) => setTimeout(resolve, 1000))
+      ]);
+
+      if (res.status === 'rejected') {
+        throw res.reason;
+      }
+
+      const { data } = (res.status === 'fulfilled' && res.value) || {};
+
       setItems(
-        res.data.items.map((item: { name: string; count: number }) => {
+        data.items.map((item: { name: string; count: number }) => {
           return { name: item.name, count: item.count };
         })
       );
