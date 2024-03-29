@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
-import { Container } from '@material-ui/core';
-import { Stack, Typography, CircularProgress } from '@mui/material';
+import { Stack, Typography, CircularProgress, Container } from '@mui/material';
 import Table from './components/Table';
 import Alert from './components/Alert';
 import Navigation from './components/Navigation';
