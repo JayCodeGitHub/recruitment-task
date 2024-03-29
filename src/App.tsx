@@ -12,16 +12,22 @@ const tableHead = [{ name: 'Tags' }, { name: 'Amount' }];
 
 function App() {
   const { items, setItems } = useStore();
+  const [isLoading, setIsLoading] = React.useState(true);
 
   const fetchData = async () => {
-    const res = await axios.get(
-      'https://api.stackexchange.com/2.3/tags?order=desc&sort=popular&site=stackoverflow'
-    );
-    setItems(
-      res.data.items.map((item: { name: string; count: number }) => {
-        return { name: item.name, count: item.count };
-      })
-    );
+    try {
+      const res = await axios.get(
+        'https://api.stackexchange.com/2.3/tags?order=desc&sort=popular&site=stackoverflow'
+      );
+      setItems(
+        res.data.items.map((item: { name: string; count: number }) => {
+          return { name: item.name, count: item.count };
+        })
+      );
+    } catch (error) {
+      console.error(error);
+    }
+    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -37,9 +43,8 @@ function App() {
       <Button>Hello World</Button>
       <Button disabled>Hello World</Button>
       <Alert />
-      {items ? (
-        <Table head={tableHead} body={items} />
-      ) : (
+      {items ? <Table head={tableHead} body={items} /> : null}
+      {isLoading && (
         <Box sx={{ display: 'flex' }}>
           <CircularProgress />
         </Box>
