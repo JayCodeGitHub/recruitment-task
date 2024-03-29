@@ -4,6 +4,7 @@ import { Typography, Box, CircularProgress } from '@mui/material';
 import Button from './components/Button';
 import Table from './components/Table';
 import Select from './components/Select';
+import Alert from './components/Alert';
 import useStore from './state';
 import axios from 'axios';
 
@@ -35,6 +36,7 @@ function App() {
       <Select />
       <Button>Hello World</Button>
       <Button disabled>Hello World</Button>
+      <Alert />
       {items ? (
         <Table head={tableHead} body={items} />
       ) : (
