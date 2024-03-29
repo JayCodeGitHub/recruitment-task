@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react';
 import { Container } from '@material-ui/core';
 import { Typography, Box, CircularProgress } from '@mui/material';
-import Button from './components/Button';
 import Table from './components/Table';
-import Select from './components/Select';
 import Alert from './components/Alert';
+import Navigation from './components/Navigation';
 import useStore from './state';
 import axios from 'axios';
 
@@ -50,9 +49,7 @@ function App() {
       <Typography variant="h1" sx={{ color: '#fff', fontSize: '2rem', margin: '1rem 0.5rem' }}>
         StackOverflow Tags
       </Typography>
-      <Select />
-      <Button>Hello World</Button>
-      <Button disabled>Hello World</Button>
+      <Navigation />
       <Alert />
       {items ? <Table head={tableHead} body={items} /> : null}
       {isLoading && (
