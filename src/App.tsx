@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Container } from '@material-ui/core';
-import { Stack, Typography, Box, CircularProgress } from '@mui/material';
+import { Stack, Typography, CircularProgress } from '@mui/material';
 import Table from './components/Table';
 import Alert from './components/Alert';
 import Navigation from './components/Navigation';
@@ -50,13 +50,13 @@ function App() {
         <Typography variant="h1" sx={{ color: '#fff', fontSize: '2rem', margin: '1rem 0.5rem' }}>
           StackOverflow Tags
         </Typography>
-        <Navigation />
         <Alert />
+        <Navigation />
         {items ? <Table head={tableHead} body={items} /> : null}
         {isLoading && (
-          <Box sx={{ display: 'flex' }}>
+          <Stack direction="row" justifyContent="center" sx={{ padding: '10rem 0' }}>
             <CircularProgress />
-          </Box>
+          </Stack>
         )}
       </Stack>
     </Container>
