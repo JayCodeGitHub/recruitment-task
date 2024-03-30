@@ -2,6 +2,11 @@
 
 # Tags browser
 
+Do projektu wykorzystałem React, Bibliotekę Mui oraz do zarządzania stanem bibliotekę zustand. Przy doborze narzędzi kierowałem się szybkością wykonania zadania oraz późniejszym rozwojem projektu.
+
+For the project, I used React, Mui Library and zustand library for state management. In selecting the tools, I was guided by the speed of the task and the subsequent development of the project.
+
+
 ## Live Demo: [tags-browser.vercel.app](https://tags-browser.vercel.app/)
 
 #### Start Project ####
